@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser';
 import { ENV } from './config/env.config.js';
 import { connectDB } from './config/db.config.js';
 import authRoutes from './routes/auth.routes.js';
+import appointmentRoutes from './routes/appointments.routes.js';
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.get('/', (req, res) => res.send('Hello from the backend!'));
 
 //* Routes
 app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/appointments', appointmentRoutes);
 
 //* Function to connect the DB and start the server
 const startServer = async () => {
