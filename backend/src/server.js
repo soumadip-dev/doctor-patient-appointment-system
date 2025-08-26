@@ -3,11 +3,13 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import { ENV } from './config/env.config.js';
 import { connectDB } from './config/db.config.js';
+import authRoutes from './routes/auth.routes.js';
 
 const app = express();
 
 const PORT = ENV.PORT || 8080;
 
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
@@ -19,6 +21,9 @@ app.use(cookieParser());
 
 //* Root Route
 app.get('/', (req, res) => res.send('Hello from the backend!'));
+
+//* Routes
+app.use('/api/v1/auth', authRoutes);
 
 //* Function to connect the DB and start the server
 const startServer = async () => {
