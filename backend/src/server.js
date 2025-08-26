@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import { ENV } from './config/env.config.js';
+import { connectDB } from './config/db.config.js';
 
 const app = express();
 
@@ -14,9 +15,22 @@ app.use(
     credentials: true,
   })
 );
-app.use(cookieParser());``
+app.use(cookieParser());
 
 //* Root Route
 app.get('/', (req, res) => res.send('Hello from the backend!'));
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+//* Function to connect the DB and start the server
+const startServer = async () => {
+  try {
+    await connectDB(); // Ensure DB is connected before starting the server
+    app.listen(PORT, () => {
+      console.info(`✔️ Server is up and running on port: ${PORT}`);
+    });
+  } catch (error) {
+    console.error('❌ Failed to start server:', error.message);
+    process.exit(1);
+  }
+};
+
+startServer();
