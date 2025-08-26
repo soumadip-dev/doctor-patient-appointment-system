@@ -1,8 +1,9 @@
 import jwt from 'jsonwebtoken';
 import { ENV } from '../config/env.config.js';
+import User from '../models/User.model.js';
 
 //* Middleware for user authentication
-export const protect = async (req, res, next) => {
+const protect = async (req, res, next) => {
   try {
     const token = req.cookies.jwt;
 
