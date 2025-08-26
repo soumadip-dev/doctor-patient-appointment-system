@@ -5,6 +5,7 @@ import { ENV } from './config/env.config.js';
 import { connectDB } from './config/db.config.js';
 import authRoutes from './routes/auth.routes.js';
 import appointmentRoutes from './routes/appointments.routes.js';
+import prescriptionRoutes from './routes/prescriptions.routes.js';
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.get('/', (req, res) => res.send('Hello from the backend!'));
 //* Routes
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/appointments', appointmentRoutes);
+app.use('/api/v1/prescriptions', prescriptionRoutes);
 
 //* Function to connect the DB and start the server
 const startServer = async () => {
