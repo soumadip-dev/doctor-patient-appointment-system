@@ -1,4 +1,4 @@
-import { registerUser, loginUser } from '../services/auth.service.js';
+import { registerUser, loginUser, getAllDoctors } from '../services/auth.service.js';
 import { ENV } from '../config/env.config.js';
 
 //* Register Controller
@@ -85,4 +85,19 @@ const isAuthenticated = (req, res) => {
     res.status(500).json({ status: 'error', message: error.message || 'Something went wrong' });
   }
 };
-export { register, login, logout, isAuthenticated };
+
+//* Controller to get all doctors
+const getAllDoctor = async (req, res) => {
+  try {
+    const doctors = await getAllDoctors();
+
+    res.status(200).json({
+      status: 'success',
+      results: doctors.length,
+      data: doctors,
+    });
+  } catch (error) {
+    res.status(500).json({ status: 'error', message: error.message || 'Something went wrong' });
+  }
+};
+export { register, login, logout, isAuthenticated, getAllDoctor };

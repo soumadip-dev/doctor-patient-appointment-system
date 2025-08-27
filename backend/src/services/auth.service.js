@@ -51,4 +51,14 @@ const loginUser = async ({ email, password, role }) => {
   return { user, token };
 };
 
-export { registerUser, loginUser };
+//*  Get all Doctor
+const getAllDoctors = async () => {
+  try {
+    const doctors = await User.find({ role: 'doctor' }).select('-password');
+    return doctors;
+  } catch (error) {
+    throw new Error(error.message || 'Something went wrong');
+  }
+};
+
+export { registerUser, loginUser, getAllDoctors };
