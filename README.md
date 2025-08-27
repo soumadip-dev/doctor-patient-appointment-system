@@ -11,6 +11,7 @@ A full-stack, web-based system enabling healthcare appointment management with d
 - [Technology Stack](#technology-stack)
 - [Installation](#installation)
 - [Usage](#usage)
+- [API Endpoints](#api-endpoints)
 - [Project Structure](#project-structure)
 - [Contributing](#contributing)
 - [License](#license)
@@ -102,6 +103,29 @@ Ensure you have installed:
 
 - **Patient**: Register or log in → Browse doctors → Book and manage appointments
 - **Doctor**: Register or log in → View incoming appointment requests → Accept, reject, or update availability
+
+---
+
+## API Endpoints
+
+### Auth
+
+- **POST** `baseUrl/api/v1/auth/register` – Register doctor or patient
+- **POST** `baseUrl/api/v1/auth/login` – Login doctor or patient
+- **POST** `baseUrl/api/v1/auth/logout` – Logout doctor or patient
+- **GET** `baseUrl/api/v1/auth/is-auth` – Check if user is authenticated
+- **GET** `baseUrl/api/v1/auth/doctors` – Get all doctors
+
+### Appointments
+
+- **POST** `baseUrl/api/v1/appointments` – Book an appointment
+- **GET** `baseUrl/api/v1/appointments` – Get all appointments
+- **PATCH** `baseUrl/api/v1/appointments/:id` – Update an appointment status
+
+### Prescriptions
+
+- **GET** `baseUrl/api/v1/prescriptions` – Get all prescriptions
+- **POST** `baseUrl/api/v1/prescriptions` – Add a prescription
 
 ---
 
