@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: ENV.FRONTEND_URL,
+    origin: [ENV.FRONTEND_URL, 'http://localhost:5174'],
     credentials: true,
   })
 );

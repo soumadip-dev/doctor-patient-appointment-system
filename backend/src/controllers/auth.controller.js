@@ -76,4 +76,13 @@ const logout = async (req, res) => {
   }
 };
 
-export { register, login, logout };
+//* Controller to check if user is authenticated
+const isAuthenticated = (req, res) => {
+  try {
+    // Send success response
+    res.status(200).json({ status: 'success', message: 'User is authenticated', user: req.user });
+  } catch (error) {
+    res.status(500).json({ status: 'error', message: error.message || 'Something went wrong' });
+  }
+};
+export { register, login, logout, isAuthenticated };
