@@ -9,5 +9,6 @@ export const ENV = {
   JWT_SECRET: process.env.JWT_SECRET,
   JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN,
   NODE_ENV: process.env.NODE_ENV,
-  FRONTEND_URL: process.env.FRONTEND_URL,
+  DOCTOR_URL: process.env.DOCTOR_URL,
+  PATIENT_URL: process.env.PATIENT_URL,
 };

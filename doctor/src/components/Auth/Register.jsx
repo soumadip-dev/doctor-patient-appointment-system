@@ -16,7 +16,7 @@ export const Register = ({ onRegister, onSwitchToLogin }) => {
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Register</h2>
+      <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Docter Register</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Name:</label>
