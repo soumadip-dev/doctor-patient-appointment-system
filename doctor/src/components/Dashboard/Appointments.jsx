@@ -28,7 +28,7 @@ export const Appointments = ({ appointments, onUpdateStatus }) => (
               {appointment.status}
             </span>
           </p>
-          {appointment.status === 'scheduled' && (
+          {appointment.status !== 'completed' && (
             <button
               onClick={() => onUpdateStatus(appointment._id, 'completed')}
               className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md transition-colors"
