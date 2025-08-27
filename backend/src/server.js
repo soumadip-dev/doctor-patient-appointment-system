@@ -6,6 +6,7 @@ import { connectDB } from './config/db.config.js';
 import authRoutes from './routes/auth.routes.js';
 import appointmentRoutes from './routes/appointments.routes.js';
 import prescriptionRoutes from './routes/prescriptions.routes.js';
+import job from './lib/cron.js';
 
 const app = express();
 
@@ -20,6 +21,9 @@ app.use(
   })
 );
 app.use(cookieParser());
+
+//* Cron Job
+job.start();
 
 //* Root Route
 app.get('/', (req, res) => res.send('Hello from the backend!'));
