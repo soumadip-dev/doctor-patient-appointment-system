@@ -14,7 +14,25 @@ const PORT = ENV.PORT || 8080;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({ credentials: true }));
+const allowedOrigins = [
+  'https://doctor-dashboard-phi.vercel.app',
+  'https://doctor-patient-appointment-system-one.vercel.app',
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // allow requests with no origin (like mobile apps, curl, Postman)
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, origin);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true,
+  })
+);
+
 app.use(cookieParser());
 
 //* Cron Job
