@@ -17,6 +17,8 @@ app.use(express.urlencoded({ extended: true }));
 const allowedOrigins = [
   'https://doctor-dashboard-phi.vercel.app',
   'https://doctor-patient-appointment-system-one.vercel.app',
+  'http://localhost:5173',
+  'http://localhost:5174',
 ];
 
 app.use(
